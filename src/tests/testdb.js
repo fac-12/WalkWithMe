@@ -6,7 +6,7 @@ const check_pet_exists = require('../queries/check_pet_exists.js');
 // const check_pet_password = require('../queries/check_pet_password.js');
 const check_walker_exists = require('../queries/check_walker_exists.js');
 // const check_walker_password = require('../queries/check_walker_password.js');
-// const get_all_walks = require('../queries/get_all_walks.js');
+const get_all_walks = require('../queries/get_all_walks.js');
 // const get_pet_own_walks = require('../queries/get_pet_own_walks.js');
 // const new_walk = require('../queries/new_walk.js');
 const register_pet= require('../queries/register_pet.js');
@@ -81,4 +81,16 @@ test('check if register_walker function adds a new walker', (t) => {
       })
     })
   })
+});
+
+
+test('check if get all walks returns only walks with status of false, unwalked', (t) => {
+    runDbBuild(function(err, res) {
+        let expected = { name: 'Fluffy', photourl: 'https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', postcode: 'ME65 7UI', walk_date: '2017-12-08', walk_time: '23:54:00' };
+        get_all_walks((err, res) => {
+            if (err) console.log(err)
+            t.deepEqual(res[0], expected, 'Should return all walks with a status of false');
+            t.end();
+        })
+    })
 });
