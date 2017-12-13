@@ -3,12 +3,14 @@ const path = require('path');
 const favicon = require('serve-favicon');
 // import 'express-handlebars'
 const exphbs = require('express-handlebars');
-
+const bodyParser = require('body-parser');
 const routes = require('./routes/index');
 // import helpers
 
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // set up view engine
 app.set('views', path.join(__dirname, 'views'));
