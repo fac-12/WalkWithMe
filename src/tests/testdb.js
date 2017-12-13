@@ -53,15 +53,30 @@ test('check walker exists query', (t) => {
 })
 
 
-test('check if register pet adds a new pet', (t) => {
-
+test('check if register_pet function adds a new pet', (t) => {
   runDbBuild(function(err, res) {
     let petObjNew = { name: 'Floofy', password: 'peach', email:'f@a.com', photourl: 'https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D' , type:'dog' }
     register_pet(petObjNew, (err, res) => {
       if(err) console.log(err);
-      t.equal(res, 'signed-up', 'If pet exists register_pet should return a string of signed up');
+      t.equal(res, 'signed-up', 'If pet exists register_pet should return a string of signed-up');
       check_pet_exists(petObjNew, (err, res) => {
         t.equals(res[0].case, true, 'New pet has been added to the database');
+        t.end();
+      })
+    })
+  })
+});
+
+
+
+test('check if register_walker function adds a new walker', (t) => {
+  runDbBuild(function(err, res) {
+    let walkerObjNew = { name: 'Kitty', password: 'peach', email:'f@a.com' }
+    register_walker(walkerObjNew, (err, res) => {
+      if(err) console.log(err);
+      t.equal(res, 'signed-up', 'If walker exists register_walker should return a string of signed-up');
+      check_walker_exists(walkerObjNew, (err, res) => {
+        t.equals(res[0].case, true, 'New walker has been added to the database');
         t.end();
       })
     })
