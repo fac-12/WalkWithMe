@@ -1,0 +1,56 @@
+<section class="home">
+  <div class="home__text">
+    <h3> Pet Walking </h3>
+    <p> Are you a pet walker ? </p>
+    <p> Do you need someone to walk your pet? </p>
+    <p> If you answered yes to one of the above questions then you have come to the right place. </p>
+  </div>
+  <div class="home__buttons">
+    <div class="home__buttons-pet">
+      <p class="home__buttons-pet__text"> Pet </p>
+      <button type="button" name="button" class="home__buttons-pet__login-btn"> Log in </button>
+      <button type="button" name="button" class="home__buttons-pet__register-btn"> Register </button>
+    </div>
+    <div class="home__buttons-walker">
+      <p class="home__buttons-walker__text"> Walker </p>
+      <button type="button" name="button" class="home__buttons-walker__login-btn"> Log in </button>
+      <button type="button" name="button" class="home__buttons-walker__register-btn"> Register </button>
+    </div>
+  </div>
+  <section class="login-pet hideForm">
+    <form class="login-pet__form" action="/loginpPet" method="post">
+      <h1 class="login-pet__form__heading"> Log in pet</h1>
+      <label for="petloginemailinput" class="login-pet__form__labels">Email<input type="email" name="petEmailLogin" id="petloginemailinput" class="login-pet__form__inputs" required> </label>
+      <label for="petloginpasswordinput" class="login-pet__form__labels">Password <input type="password" name="petPasswordLogin" id="petloginpasswordinput" class="login-pet__form__inputs" required> </label>
+      <label for="petloginsubmit" class="login-pet__form__inputs"><input type="submit" name="petLoginSubmit" value="Log in" id="petloginsubmit" class="login-pet__form__submit"> </label>
+    </form>
+  </section>
+  <section class="login-walker hideForm">
+    <form class="login-walker__form" action="/loginWalker" method="post">
+      <h1 class="login-walker__form__heading"> Log in walker</h1>
+      <label for="walkerloginemailinput" class="login-walker__form__labels">Email<input type="email" name="walkerEmailLogin" id="walkerloginemailinput" class="login-walker__form__inputs" required> </label>
+      <label for="walkerloginpasswordinput" class="login-walker__form__labels">Password <input type="password" name="walkerPasswordLogin" id="walkerloginpasswordinput" class="login-walker__form__inputs" required> </label>
+      <label for="walkerloginsubmit" class="login-walker__form__labels"><input type="submit" name="walkerloginsubmit" value="Log in" id="walkerloginsubmit" class="login-walker__form__submit"> </label>
+    </form>
+  </section>
+  <section class="register-pet hideForm">
+    <form class="register-pet__form" action="/registerPet" method="post">
+      <h1 class="register-pet__form__heading"> Register pet</h1>
+      <label for="registerpettypeinput" class="register-pet__form__labels"> Type <input type="text" name="registerPetType" id="registerpettypeinput" class="register-pet__form__inputs" required> </label>
+      <label for="registerpetnameinput" class="register-pet__form__labels"> Pet name <input type="text" name="registerPetName" id="registerpetnameinput" class="register-pet__form__inputs" required> </label>
+      <label for="registerpetpictureinput" class="register-pet__form__labels"> Pet picture url <input type="text" name="registerPetPicture" id="registerpetpictureinput" class="register-pet__form__inputs" required> </label>
+      <label for="petregisteremailinput" class="register-pet__form__labels">Email<input type="email" name="petEmailRegister" id="petregisteremailinput" class="register-pet__form__inputs" class="register-pet__form__inputs" required> </label>
+      <label for="petregisterpasswordinput" class="register-pet__form__labels">Password <input type="password" name="passowrd" id="petregisterpasswordinput" class="register-pet__form__inputs" required> </label>
+      <label for="petregistersubmit" class="register-pet__form__labels"><input type="submit" name="petregistersubmit" value="Register" id="petregistersubmit" class="register-pet__form__submit"> </label>
+    </form>
+  </section>
+  <section class="register-walker hideForm">
+    <form class="register-walker__form" action="/registerWalker" method="post">
+      <h1 class="register-walker__form__heading"> Register walker </h1>
+      <label for="registerinputname" class="register-walker__form__labels"> Name <input type="text" name="registerWalkerName" id="registerinputname" class="register-walker__form__inputs"> </label>
+      <label for="walkerregisteremailinput" class="register-walker__form__labels">Email<input type="email" name="walkerEmailLogin" id="walkerregisteremailinput" class="register-walker__form__inputs" required> </label>
+      <label for="walkerregisterpasswordinput">Password <input type="password" name="passowrd" id="walkerregisterpasswordinput" class="register-walker__form__inputs" required> </label>
+      <label for="walkerregistersubmit" class="register-walker__form__labels"><input type="submit" name="walkerregistersubmit" value="Register" id="walkerregistersubmit" class="register-walker__form__submit"> </label>
+    </form>
+  </section>
+</section>
