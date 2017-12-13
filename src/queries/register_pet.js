@@ -1,4 +1,4 @@
-const databaseConnection = require('./../database/db_connections.js')
+const databaseConnection = require('../database/db_connections.js')
 
 const register_pet = (petObj, cb) => {
   databaseConnection.query(

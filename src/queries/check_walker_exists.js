@@ -1,4 +1,4 @@
-const databaseConnection = require('./../database/db_connections.js')
+const databaseConnection = require('../database/db_connections.js')
 
 const check_walker_exists = (walkerObj, cb) => {
   databaseConnection.query(
