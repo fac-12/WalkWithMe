@@ -7,7 +7,7 @@ const check_pet_exists = require('../queries/check_pet_exists.js');
 const check_walker_exists = require('../queries/check_walker_exists.js');
 // const check_walker_password = require('../queries/check_walker_password.js');
 const get_all_walks = require('../queries/get_all_walks.js');
-// const get_pet_own_walks = require('../queries/get_pet_own_walks.js');
+const get_pet_own_walks = require('../queries/get_pet_own_walks.js');
 // const new_walk = require('../queries/new_walk.js');
 const register_pet= require('../queries/register_pet.js');
 const register_walker = require('../queries/register_walker.js')
@@ -94,3 +94,15 @@ test('check if get all walks returns only walks with status of false, unwalked',
         })
     })
 });
+
+
+test('check if get pet own walks function returns a list of walks related to pet', (t) => {
+  runDbBuild(function(err, res) {
+    let petId = 1;
+    let expected = { walk_date: '2017-12-08', walk_time: '23:54:00'};
+    get_pet_own_walks(petId, (err, res) => {
+      t.deepEqual(res[0], expected, 'Should return all walks related to petId');
+      t.end();
+    })
+  })
+})
