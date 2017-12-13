@@ -1,0 +1,36 @@
+{
+  "name": "walkwithme",
+  "version": "1.0.0",
+  "description": "An application for dog walkers to find dogs that need walking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-12/WalkWithMe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-12/WalkWithMe/issues"
+  },
+  "homepage": "https://github.com/fac-12/WalkWithMe#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {
+    "env2": "^2.2.0",
+    "eslint": "^4.13.1",
+    "nodemon": "^1.12.5",
+    "supertest": "^3.0.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  }
+}
