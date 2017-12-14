@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const check_pet_exists = require('../queries/check_pet_exists');
 const check_pet_password = require('../queries/check_pet_password');
+const get_pet_id = require('../queries/get_pet_id');
 
 exports.post = (req, res) => {
   const petDetails = req.body;
@@ -21,10 +22,18 @@ exports.post = (req, res) => {
               if (bcryptRes === false) {
                 req.flash('error_msg', 'Incorrect Password, please try again');
                 res.redirect('/');
-              } else if (bcryptRes === true) {
-                req.session.cookie.Loggedin = true;
-                req.flash('success', 'You are now logged in');
-                res.redirect('/');
+              } else if(bcryptRes === true) {
+                req.session.Loggedin = true;
+                get_pet_id(petDetails.petEmailLogin, (qErr, qRes) => {
+                  if(qErr) console.log(qErr);
+                  else {
+                    let uniquePetId = qRes.rows[0].id;
+
+                    req.session.petid = uniquePetId;
+                    res.redirect('/petUniqueWalk');
+                  }
+                })
+
               }
 
             }

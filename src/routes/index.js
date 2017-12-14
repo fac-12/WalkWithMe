@@ -4,7 +4,8 @@ const router = express.Router();
 const loginpet = require('./loginpet')
 const loginwalker = require('./loginwalker')
 const registerpet = require('./registerpet')
-const registerwalker = require('./registerwalker');
+const registerwalker = require('./registerwalker')
+const petuniquewalk = require('./petuniquewalk');
 const availablepetwalks = require('./availablepetwalks');
 const itsamatch = require('./itsamatch');
 const home = require('./home');
@@ -14,6 +15,9 @@ router.post('/loginPet',loginpet.post);
 router.post('/loginWalker',loginwalker.post);
 router.post('/registerPet',registerpet.post);
 router.post('/registerWalker',registerwalker.post);
+router.get('/petUniqueWalk', petuniquewalk.get);
+// router.get('/fruits', fruits.get);
+// router.get('/fruits/:singleFruit', singleFruit.get);
 router.get('/availablePetWalks', availablepetwalks.get);
 router.post('/itsAMatch', itsamatch.post)
 
