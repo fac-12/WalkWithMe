@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
-// import 'express-handlebars'
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index');
@@ -9,10 +8,8 @@ const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
-// import helpers
-
-
 const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -35,7 +32,7 @@ app.use(session({
   secret: process.env.SECRET,
   saveUninitialized: false,
   resave:false,
-  cookie: {maxAge: 10000}
+  cookie: {maxAge: 1000000000}
 }));
 
 app.use((req,res,next) => {
@@ -46,13 +43,7 @@ app.use((req,res,next) => {
   next();
 })
 
-// app.use(cookieParser({
-//   name: 'cookie',
-//   secret: process.env.SECRET,
-//   maxAge: 24*60*60*1000
-// }))
 app.set('port', process.env.PORT || 3000);
-// app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(routes);
 
