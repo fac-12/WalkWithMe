@@ -2,19 +2,38 @@
   <header class="walkerDisplay__heading">
     <h2 class="walkerDisplay__heading__title"> All walks </h2>
   </header>
+  <section>
+
+
+  </section>
+
   <section class="walkerDisplay__pets-container">
-    {{#each allWalks}}
-      <div class="walkerDisplay__pet">
-        <img src={{photourl}}/ class="walkerDisplay__pet__img">
-        <p class="walkerDisplay__pet__name">Name: {{name}}</p>
-        <p class="walkerDisplay__pet__type"> Pet type: {{type}}</p>
-        <p class="walkerDisplay__pet__location"> Pickup location: {{postcode}}</p>
-        <p class="walkerDisplay__pet__date"> Pickup date: {{walk_date}}</p>
-        <p class="walkerDisplay__pet__time"> Pickup time: {{walk_time}}</p>
-        <form class="walkerDisplay__pet__form" action="/itsAMatch" method="post">
-          <input class="walkerDisplay__pet__form__submit" name={{id}} type="submit" value="Match">
-        </form>
-      </div
-    {{/each}}
+    {{#if allWalks}}
+    {{#if success}}
+    <p>{{success}} </p>
+    {{else if error_msg}}
+      <p>{{error_msg}} </p>
+    {{/if}}
+      {{#each allWalks}}
+        <div class="walkerDisplay__pet">
+          <img src={{photourl}}/ class="walkerDisplay__pet__img">
+          <p class="walkerDisplay__pet__name">Name: {{name}}</p>
+          <p class="walkerDisplay__pet__type"> Pet type: {{type}}</p>
+          <p class="walkerDisplay__pet__location"> Pickup location: {{postcode}}</p>
+          <p class="walkerDisplay__pet__date"> Pickup date: {{walk_date}}</p>
+          <p class="walkerDisplay__pet__time"> Pickup time: {{walk_time}}</p>
+          <form class="walkerDisplay__pet__form" action="/itsAMatch" method="post">
+            <input type="text" name="petemail" value={{email}} class="walkerDisplay__pet__form__input" style="display:none">
+            <input type="text" name="walkid" value={{id}} class="walkerDisplay__pet__form__input" style="display:none">
+            <input class="walkerDisplay__pet__form__submit" type="submit" value="Match">
+          </form>
+        </div>
+      {{/each}}
+      {{else}}
+      <div class="walkerDisplay__no-pet">
+        <p class="walkerDisplay__no-pet__text">Sadly there are no pets available to walk right now.</p>
+        <img class="walkerDisplay__no-pet__img" src="https://media.giphy.com/media/3o7WTutp8jXuC9IUMg/giphy.gif" alt="sad dog">
+      </div>
+    {{/if}}
   </section>
 </section>
