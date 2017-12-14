@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const check_pet_exists = require('../queries/check_pet_exists');
 const register_pet = require('../queries/register_pet');
+const get_pet_id = require('../queries/get_pet_id');
 
 exports.post = (req, res, next) => {
   const petDetails = req.body;
@@ -26,8 +27,16 @@ exports.post = (req, res, next) => {
                   next(err);
                 } else{
                   req.session.Loggedin = true;
-                  req.flash('success', queryRes)
-                  res.redirect('/petUniqueWalk')
+                  get_pet_id(petDetails.registerPetEmail, (qErr, qRes) => {
+                    if(qErr) next(err);
+                    else {
+                      let uniquePetId = qRes.rows[0].id;
+
+                      req.session.petid = uniquePetId;
+                      console.log('rs login', req.session);
+                      res.redirect('/petUniqueWalk');
+                    }
+                  })
                 }
               })
             }
