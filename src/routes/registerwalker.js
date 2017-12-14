@@ -8,7 +8,7 @@ exports.post = (req, res, next) => {
   check_walker_exists(walkerDetails.registerWalkerEmail, (err,queryRes) => {
     if(err){
       next(err);
-    }else if(queryRes[0].case === true){
+    } else if(queryRes[0].case === true){
       req.flash('error_msg','You already have an account, please login');
       res.redirect('/');
     } else {
