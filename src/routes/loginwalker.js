@@ -7,6 +7,7 @@ exports.post = (req, res) => {
   const walkerDetails = req.body;
   check_walker_exists(walkerDetails.walkerEmailLogin, (err, queryRes) => {
     if(err){
+      console.log(' login check walker exist' ,err);
       res.status(500);
     }else if(queryRes[0].case === false){
       console.log('you dont exist');
@@ -14,12 +15,14 @@ exports.post = (req, res) => {
       res.redirect('/');
     } else{
       check_walker_password(walkerDetails.walkerEmailLogin, (err, queryRes) => {
-        if(err) res.status(500);
-        else {
+        if(err){ res.status(500);
+          console.log('login check walker password' ,err);
+        }else {
           const password = queryRes.rows[0].password;
           bcrypt.compare(walkerDetails.walkerPasswordLogin, password, (err, bcryptRes) => {
-            if(err) res.status(500);
-            else {
+            if(err){ res.status(500);
+                   console.log('login bycrypt' ,err);
+            }else {
               if(bcryptRes === false) {
                 req.flash('error_msg', 'Incorrect Password, please try again');
                 res.redirect('/');
