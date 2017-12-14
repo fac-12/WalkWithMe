@@ -34,6 +34,7 @@ app.use(session({
   secret: process.env.SECRET,
   saveUninitialized: false,
   resave:false,
+  cookie: {maxAge: 10000}
 }));
 
 app.use((req,res,next) => {
@@ -44,6 +45,11 @@ app.use((req,res,next) => {
   next();
 })
 
+// app.use(cookieParser({
+//   name: 'cookie',
+//   secret: process.env.SECRET,
+//   maxAge: 24*60*60*1000
+// }))
 app.set('port', process.env.PORT || 3000);
 // app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));

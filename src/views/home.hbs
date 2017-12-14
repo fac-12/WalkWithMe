@@ -54,8 +54,11 @@
     </form>
   </section>
   <section>
-    {{#if success}}<p>{{success}}  </p>  {{/if}}
-    {{#if error}}<p>{{error_msg}}  </p>  {{/if}}
+    {{#if success}}
+    <p>{{success}} </p>
+    {{else if error_msg}}
+      <p>{{error_msg}} </p>
+    {{/if}}
 
   </section>
 </section>
