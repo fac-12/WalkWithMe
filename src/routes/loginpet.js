@@ -7,17 +7,17 @@ exports.post = (req, res) => {
   const petDetails = req.body;
   check_pet_exists(petDetails.petEmailLogin, (err, queryRes) => {
     if (err) {
-      throw err;
+      res.status(500);
     } else if (queryRes[0].case === false) {
       req.flash('error_msg', 'You do not have an account. Please register.');
       res.redirect('/');
     } else {
       check_pet_password(petDetails.petEmailLogin, (err, queryRes) => {
-        if (err) console.log(err);
+        if (err) res.status(500);
         else {
           const password = queryRes.rows[0].password;
           bcrypt.compare(petDetails.petPasswordLogin, password, (err, bcryptRes) => {
-            if (err) console.log(err);
+            if (err) res.status(500);
             else {
               if (bcryptRes === false) {
                 req.flash('error_msg', 'Incorrect Password, please try again');
@@ -25,7 +25,7 @@ exports.post = (req, res) => {
               } else if(bcryptRes === true) {
                 req.session.Loggedin = true;
                 get_pet_id(petDetails.petEmailLogin, (qErr, qRes) => {
-                  if(qErr) console.log(qErr);
+                  if(qErr) res.status(500);
                   else {
                     let uniquePetId = qRes.rows[0].id;
 

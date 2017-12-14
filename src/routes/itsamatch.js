@@ -5,7 +5,7 @@ exports.post = (req, res) =>{
   const petemail = req.body.petemail;
   change_walk_status(id, (err, queryRes) => {
     if(err){
-      throw err;
+      res.status(500);
     } else{
       req.flash('success', 'You\'ve been matched! Please contact the pet by emailing ' + petemail);
       res.redirect('/availablePetWalks');
