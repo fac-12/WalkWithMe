@@ -39,8 +39,8 @@
       <label for="registerpettypeinput" class="register-pet__form__labels"> Type <input type="text" name="registerPetType" id="registerpettypeinput" class="register-pet__form__inputs" required> </label>
       <label for="registerpetnameinput" class="register-pet__form__labels"> Pet name <input type="text" name="registerPetName" id="registerpetnameinput" class="register-pet__form__inputs" required> </label>
       <label for="registerpetpictureinput" class="register-pet__form__labels"> Pet picture url <input type="text" name="registerPetPicture" id="registerpetpictureinput" class="register-pet__form__inputs" required> </label>
-      <label for="petregisteremailinput" class="register-pet__form__labels">Email<input type="email" name="petEmailRegister" id="petregisteremailinput" class="register-pet__form__inputs" class="register-pet__form__inputs" required> </label>
-      <label for="petregisterpasswordinput" class="register-pet__form__labels">Password <input type="password" name="password" id="petregisterpasswordinput" class="register-pet__form__inputs" required> </label>
+      <label for="petregisteremailinput" class="register-pet__form__labels">Email<input type="email" name="registerPetEmail" id="petregisteremailinput" class="register-pet__form__inputs" class="register-pet__form__inputs" required> </label>
+      <label for="petregisterpasswordinput" class="register-pet__form__labels">Password <input type="password" name="registerPetPassword" id="petregisterpasswordinput" class="register-pet__form__inputs" required> </label>
       <label for="petregistersubmit" class="register-pet__form__labels"><input type="submit"  value="Register" id="petregistersubmit" class="register-pet__form__submit"> </label>
     </form>
   </section>
@@ -48,9 +48,17 @@
     <form class="register-walker__form" action="/registerWalker" method="post">
       <h1 class="register-walker__form__heading"> Register walker </h1>
       <label for="registerinputname" class="register-walker__form__labels"> Name <input type="text" name="registerWalkerName" id="registerinputname" class="register-walker__form__inputs"> </label>
-      <label for="walkerregisteremailinput" class="register-walker__form__labels">Email<input type="email" name="walkerEmailLogin" id="walkerregisteremailinput" class="register-walker__form__inputs" required> </label>
-      <label for="walkerregisterpasswordinput">Password <input type="password" name="passowrd" id="walkerregisterpasswordinput" class="register-walker__form__inputs" required> </label>
+      <label for="walkerregisteremailinput" class="register-walker__form__labels">Email<input type="email" name="registerWalkerEmail" id="walkerregisteremailinput" class="register-walker__form__inputs" required> </label>
+      <label for="walkerregisterpasswordinput">Password <input type="password" name="registerWalkerPassword" id="walkerregisterpasswordinput" class="register-walker__form__inputs" required> </label>
       <label for="walkerregistersubmit" class="register-walker__form__labels"><input type="submit"  value="Register" id="walkerregistersubmit" class="register-walker__form__submit"> </label>
     </form>
+  </section>
+  <section>
+    {{#if success}}
+    <p>{{success}} </p>
+    {{else if error_msg}}
+      <p>{{error_msg}} </p>
+    {{/if}}
+
   </section>
 </section>
