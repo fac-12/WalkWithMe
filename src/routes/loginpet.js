@@ -6,20 +6,20 @@ const get_pet_id = require('../queries/get_pet_id');
 exports.post = (req, res) => {
   const petDetails = req.body;
   check_pet_exists(petDetails.petEmailLogin, (err, queryRes) => {
-    if(err){
+    if (err) {
       throw err;
-    }else if(queryRes[0].case === false){
-      req.flash('error_msg','You do not have an account. Please register.');
+    } else if (queryRes[0].case === false) {
+      req.flash('error_msg', 'You do not have an account. Please register.');
       res.redirect('/');
-    } else{
+    } else {
       check_pet_password(petDetails.petEmailLogin, (err, queryRes) => {
-        if(err) console.log(err);
+        if (err) console.log(err);
         else {
           const password = queryRes.rows[0].password;
           bcrypt.compare(petDetails.petPasswordLogin, password, (err, bcryptRes) => {
-            if(err) console.log(err);
+            if (err) console.log(err);
             else {
-              if(bcryptRes === false) {
+              if (bcryptRes === false) {
                 req.flash('error_msg', 'Incorrect Password, please try again');
                 res.redirect('/');
               } else if(bcryptRes === true) {
@@ -34,17 +34,12 @@ exports.post = (req, res) => {
                   }
                 })
 
-
-
-
               }
 
             }
           })
         }
       })
-
     }
   })
-
-};
+}

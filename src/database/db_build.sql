@@ -37,5 +37,9 @@ INSERT INTO pets (name, password, email, photourl, type) VALUES ('Nibbles', '$2a
 
 INSERT INTO walks (pet_id, postcode, walk_date, walk_time, status) VALUES ((SELECT id FROM pets where name = 'Fluffy'), 'ME65 7UI', '2017-12-08', '23:54:00', false);
 INSERT INTO walks (pet_id, postcode, walk_date, walk_time, status) VALUES ((SELECT id FROM pets where name = 'Nibbles'), 'IO54 7PO', '2017-11-01', '08:33:00', true);
+INSERT INTO walks (pet_id, postcode, walk_date, walk_time, status) VALUES ((SELECT id FROM pets where name = 'Nibbles'), 'IO54 7PO', '2017-11-01', '08:33:00', false);
+INSERT INTO walks (pet_id, postcode, walk_date, walk_time, status) VALUES ((SELECT id FROM pets where name = 'Nibbles'), 'IO54 7PO', '2017-11-03', '08:33:00', false);
+INSERT INTO walks (pet_id, postcode, walk_date, walk_time, status) VALUES ((SELECT id FROM pets where name = 'Nibbles'), 'IO54 7PO', '2017-11-02', '08:33:00', false);
+INSERT INTO walks (pet_id, postcode, walk_date, walk_time, status) VALUES ((SELECT id FROM pets where name = 'Nibbles'), 'IO54 7PO', '2017-11-05', '08:33:00', false);
 
 COMMIT;
