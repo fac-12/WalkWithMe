@@ -13,7 +13,6 @@ exports.post = (req, res) => {
       req.flash('error_msg','You already have an account, please login');
       res.redirect('/');
     } else {
-      req.session.cookie.Loggedin = true;
       console.log("Cookie :", req.session);
       bcrypt.genSalt(10,(err,salt) => {
         if(err)
@@ -29,6 +28,7 @@ exports.post = (req, res) => {
                 if(err){
                   throw err
                 } else{
+                  req.session.cookie.Loggedin = true;
                   req.flash('success', queryRes)
                   res.redirect('/')
                 }
