@@ -5,15 +5,12 @@ const register_pet = require('../queries/register_pet');
 exports.post = (req, res) => {
   const petDetails = req.body;
   check_pet_exists(petDetails.registerPetEmail, (err,queryRes) => {
-    console.log("Query res: ", queryRes);
     if(err){
       throw err;
     }else if(queryRes[0].case === true){
-      console.log('you exist');
       req.flash('error_msg','You already have an account, please login');
       res.redirect('/');
     } else {
-      console.log("Cookie :", req.session);
       bcrypt.genSalt(10,(err,salt) => {
         if(err)
             throw err;

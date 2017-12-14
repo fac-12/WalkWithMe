@@ -5,22 +5,18 @@ const loginpet = require('./loginpet')
 const loginwalker = require('./loginwalker')
 const registerpet = require('./registerpet')
 const registerwalker = require('./registerwalker');
-const availablePetWalks = require('./availablePetWalks');
-// import home route controller
+const availablepetwalks = require('./availablepetwalks');
+const itsamatch = require('./itsamatch');
 const home = require('./home');
-// const fruits = require('./fruits');
-// const singleFruit = require('./singlefruit');
-// const error = require('./error');
 
-// add home route
 router.get('/', home.get);
 router.post('/loginPet',loginpet.post);
 router.post('/loginWalker',loginwalker.post);
 router.post('/registerPet',registerpet.post);
 router.post('/registerWalker',registerwalker.post);
-router.get('/availablePetWalks', availablePetWalks.get);
-// router.get('/fruits', fruits.get);
-// router.get('/fruits/:singleFruit', singleFruit.get);
+router.get('/availablePetWalks', availablepetwalks.get);
+router.post('/itsAMatch', itsamatch.post)
+
 // router.use(error.client);
 // router.use(error.server);
 

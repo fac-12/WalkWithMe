@@ -5,7 +5,6 @@ exports.get = (req, res) =>{
     if(err){
       console.log(err)
     } else {
-      console.log(queryRes)
       res.render('displayWalks', {allWalks: queryRes})
     }
   })
