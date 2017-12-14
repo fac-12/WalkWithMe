@@ -24,7 +24,7 @@ exports.post = (req, res) => {
               throw err;
             }
             else{
-              walkerDetails.registerPassword = hash;
+              walkerDetails.registerWalkerPassword = hash;
               register_walker(walkerDetails, (err, queryRes) => {
                 if(err){
                   throw err
