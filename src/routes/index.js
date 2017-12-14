@@ -5,6 +5,7 @@ const loginpet = require('./loginpet')
 const loginwalker = require('./loginwalker')
 const registerpet = require('./registerpet')
 const registerwalker = require('./registerwalker')
+const petuniquewalk = require('./petuniquewalk');
 // import home route controller
 const home = require('./home');
 // const fruits = require('./fruits');
@@ -17,6 +18,7 @@ router.post('/loginPet',loginpet.post);
 router.post('/loginWalker',loginwalker.post);
 router.post('/registerPet',registerpet.post);
 router.post('/registerWalker',registerwalker.post);
+router.get('/petUniqueWalk', petuniquewalk.get);
 // router.get('/fruits', fruits.get);
 // router.get('/fruits/:singleFruit', singleFruit.get);
 // router.use(error.client);

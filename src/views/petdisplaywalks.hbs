@@ -1,0 +1,25 @@
+<section class="walkerDisplay">
+  <header class="walkerDisplay__heading">
+    <h2 class="walkerDisplay__heading__title"> Your walks </h2>
+  </header>
+  <section>
+  </section>
+  <section class="walkerDisplay__pets-container">
+      {{#each allWalks}}
+        <div class="walkerDisplay__pet">
+          <p class="walkerDisplay__pet__location"> Pickup location: {{postcode}}</p>
+          <p class="walkerDisplay__pet__date"> Pickup date: {{walk_date}}</p>
+          <p class="walkerDisplay__pet__time"> Pickup time: {{walk_time}}</p>
+        </div>
+      {{/each}}
+    </section>
+    <section class="walkerDisplay__newWalk-container">
+        <form class="new-walk__form" action="/newWalk" method="post">
+          <h1 class="new-walk__form__heading">Request a Walk</h1>
+          <label for="newwalkpostcodeinput" class="new-walk__form__labels">Postcode<input type="text" name="newWalkPostcode" id="newwalkpostcodeinput" class="register-pet__form__inputs" required> </label>
+          <label for="newwalkdateinput" class="new-walk__form__labels">Date<input type="date" name="newWalkDate" id="newwalkdateinput" class="new-walk__form__inputs" required> </label>
+          <label for="newwalktimeinput" class="new-walk__form__labels">Time<input type="time" name="newWalkTime" id="newwalktimeinput" class="new-pet__form__inputs" required> </label>
+        </form>
+
+  </section>
+</section>
