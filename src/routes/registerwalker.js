@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const check_walker_exists = require('../queries/check_walker_exists');
 const register_walker = require('../queries/register_walker');
+//const availablePetWalks = require()
 
 exports.post = (req, res) => {
   console.log(req.body);
@@ -31,7 +32,7 @@ exports.post = (req, res) => {
                 } else{
                   req.session.cookie.Loggedin = true;
                   req.flash('success', queryRes)
-                  res.redirect('/')
+                  res.redirect('/availablePetWalks')
                 }
               })
             }
