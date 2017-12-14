@@ -25,7 +25,7 @@ exports.post = (req, res) => {
                 if(err){
                   res.status(500)
                 } else{
-                  req.session.cookie.Loggedin = true;
+                  req.session.Loggedin = true;
                   req.flash('success', queryRes)
                   res.redirect('/petUniqueWalk')
                 }

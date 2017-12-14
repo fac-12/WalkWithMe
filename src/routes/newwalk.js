@@ -1,7 +1,7 @@
 const new_walks = require('../queries/new_walk');
 
 exports.post = (req, res) => {
-console.log(req.session);
+console.log("rs new walk", req.session);
   const newWalkObj = {
     pet_id: req.session.petid,
     postcode: req.body.newwalkpostcode,
