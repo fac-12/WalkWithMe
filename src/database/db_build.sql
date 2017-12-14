@@ -24,8 +24,8 @@ CREATE TABLE walks (
   id SERIAL PRIMARY KEY,
   pet_id INT REFERENCES pets(id) ON DELETE CASCADE,
   postcode VARCHAR(10) NOT NULL,
-  walkdate DATE,
-  walktime TIME,
+  walk_date VARCHAR(11) NOT NULL,
+  walk_time TIME,
   status BOOLEAN
 );
 
@@ -35,7 +35,7 @@ INSERT INTO walkers (name, password, email) VALUES ('Kitty', '$2a$10$HBZ2/Lq7h72
 INSERT INTO pets (name, password, email, photourl, type) VALUES ('Fluffy', '$2a$10$j8TPlpZ9LREJS.ZaYqghvulYc8KCWsq75f8o9IzA.l4z8mR14bDVm', 'f@g.com', 'https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'dog');
 INSERT INTO pets (name, password, email, photourl, type) VALUES ('Nibbles', '$2a$10$RoT2RtXQ/Nh6Z/CZwfohz.MaDDcGpBEl.cmqFiv2LWrFie2LINvJm', 'h@j.com', 'https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?auto=format&fit=crop&w=333&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'dog');
 
-INSERT INTO walks (pet_id, postcode, walkdate, walktime, status) VALUES ((SELECT id FROM pets where name = 'Fluffy'), 'ME65 7UI', '2017-12-08', '23:54:00', false);
-INSERT INTO walks (pet_id, postcode, walkdate, walktime, status) VALUES ((SELECT id FROM pets where name = 'Nibbles'), 'IO54 7PO', '2017-11-01', '08:33:00', true);
+INSERT INTO walks (pet_id, postcode, walk_date, walk_time, status) VALUES ((SELECT id FROM pets where name = 'Fluffy'), 'ME65 7UI', '2017-12-08', '23:54:00', false);
+INSERT INTO walks (pet_id, postcode, walk_date, walk_time, status) VALUES ((SELECT id FROM pets where name = 'Nibbles'), 'IO54 7PO', '2017-11-01', '08:33:00', true);
 
 COMMIT;
