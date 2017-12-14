@@ -6,11 +6,12 @@ const loginwalker = require('./loginwalker')
 const registerpet = require('./registerpet')
 const registerwalker = require('./registerwalker')
 const petuniquewalk = require('./petuniquewalk');
-const availablepetwalks = require('./availablepetwalks');
+const availablepetwalks = require('./availablePetWalks');
 const itsamatch = require('./itsamatch');
 const home = require('./home');
 const newwalk = require('./newwalk');
 const error = require('./error');
+const logout = require('./logout');
 
 router.get('/', home.get);
 router.post('/loginPet',loginpet.post);
@@ -21,6 +22,7 @@ router.get('/petUniqueWalk', petuniquewalk.get);
 router.get('/availablePetWalks', availablepetwalks.get);
 router.post('/itsAMatch', itsamatch.post);
 router.post('/newWalk', newwalk.post);
+router.post('/logout',logout.post);
 
 router.use(error.client);
 router.use(error.server);

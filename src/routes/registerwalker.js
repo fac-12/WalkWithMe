@@ -13,19 +13,19 @@ exports.post = (req, res, next) => {
       res.redirect('/');
     } else {
       bcrypt.genSalt(10,(err,salt) => {
+
         if(err)
             next(err);
         else{
           bcrypt.hash(walkerDetails.registerWalkerPassword,salt,(err,hash) => {
             if(err){
               next(err);
-            }
-            else{
+            } else{
               walkerDetails.registerWalkerPassword = hash;
               register_walker(walkerDetails, (err, queryRes) => {
                 if(err){
                   next(err);
-                } else{
+                } else {
                   req.session.Loggedin = true;
                   req.flash('success', queryRes)
                   res.redirect('/availablePetWalks')
