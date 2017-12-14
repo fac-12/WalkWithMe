@@ -53,7 +53,6 @@ test('check walker exists query', (t) => {
   })
 })
 
-<<<<<<< HEAD
 
 test('check if register_pet function adds a new pet', (t) => {
   runDbBuild(function(err, res) {
@@ -109,13 +108,16 @@ test('check if get pet own walks function returns a list of walks related to pet
   })
 })
 
-test('check if adds a new walk to the walks table', (t) => {
+test('check if new_walk adds a new walk to the walks table', (t) => {
   runDbBuild(function(err, res) {
+    let originalLength;
+    get_all_walks((err, res) => {
+       originalLength = res.length;
+    });
     let newWalk = { pet_id: 1, postcode: 'E8 3AS', walk_date: '2017-03-06', walk_time: '23:54:00', status: false};
     new_walk(newWalk, (err, res) => {
       get_all_walks((err, res) => {
-        const testWalk = res[res.length-1];
-        t.deepEqual(testWalk, newWalk, 'Should return the walk originally entered');
+        t.equals(originalLength, res.length, 'Should return length of the walks table plus one');
         t.end();
       })
     })
