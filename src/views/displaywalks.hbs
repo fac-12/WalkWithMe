@@ -1,0 +1,20 @@
+<section class="walkerDisplay">
+  <header class="walkerDisplay__heading">
+    <h2 class="walkerDisplay__heading__title"> All walks </h2>
+  </header>
+  <section class="walkerDisplay__pets-container">
+    {{#each allWalks}}
+      <div class="walkerDisplay__pet">
+        <img src={{photourl}}/ class="walkerDisplay__pet__img">
+        <p class="walkerDisplay__pet__name">Name: {{name}}</p>
+        <p class="walkerDisplay__pet__type"> Pet type: {{type}}</p>
+        <p class="walkerDisplay__pet__location"> Pickup location: {{postcode}}</p>
+        <p class="walkerDisplay__pet__date"> Pickup date: {{walk_date}}</p>
+        <p class="walkerDisplay__pet__time"> Pickup time: {{walk_time}}</p>
+        <form class="walkerDisplay__pet__form" action="/itsAMatch" method="post">
+          <input class="walkerDisplay__pet__form__submit" name={{id}} type="submit" value="Match">
+        </form>
+      </div
+    {{/each}}
+  </section>
+</section>

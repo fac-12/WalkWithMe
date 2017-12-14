@@ -26,7 +26,7 @@ exports.post = (req, res) => {
               } else if(bcryptRes === true) {
                 req.session.cookie.Loggedin = true;
                 req.flash('success', 'You are now logged in');
-                res.redirect('/');
+                res.redirect('/availablePetWalks');
               }
 
             }
