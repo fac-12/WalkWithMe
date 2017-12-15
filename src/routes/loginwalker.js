@@ -29,7 +29,6 @@ exports.post = (req, res, next) => {
                 req.session.Loggedin = true;
                 get_walker_name(walkerDetails.walkerEmailLogin, (err, walkerRes) => {
                   req.session.name = walkerRes.rows[0].name;
-                  req.flash('success', 'You are now logged in');
                   res.redirect('/availablePetWalks');
 
                })

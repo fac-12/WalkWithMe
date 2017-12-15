@@ -1,22 +1,22 @@
-<section class="walkerDisplay">
-  <header class="walkerDisplay__heading">
-    <h2 class="walkerDisplay__heading__title"> Hello {{petName}}! </h2>
-    <h2 class="walkerDisplay__heading__title"> Here are your walks </h2>
+<section class="walkDisplay">
+  <header class="walkDisplay__heading">
+    <h2 class="walkDisplay__heading__title"> Hello {{petName}}! </h2>
+    <h2 class="walkDisplay__heading__title"> Here are your walks </h2>
   </header>
   <form class=""action="/logout" method="post">
-    <label for="logoutId"><input type="submit"  value="Log out" id='logoutId'></label>
+    <label for="logoutId"><input type="submit"  value="Log out" id='logoutId' class="logoutBtn"></label>
   </form>
 
-  <section class="walkerDisplay__pets-container">
+  <section class="walkDisplay__pets-container">
       {{#each allWalks}}
-        <div class="walkerDisplay__pet">
-          <p class="walkerDisplay__pet__location"> Pickup location: {{postcode}}</p>
-          <p class="walkerDisplay__pet__date"> Pickup date: {{walk_date}}</p>
-          <p class="walkerDisplay__pet__time"> Pickup time: {{walk_time}}</p>
+        <div class="walkDisplay__pet">
+          <p class="walkDisplay__pet__location"> Pickup location: {{postcode}}</p>
+          <p class="walkDisplay__pet__date"> Pickup date: {{walk_date}}</p>
+          <p class="walkDisplay__pet__time"> Pickup time: {{walk_time}}</p>
         </div>
       {{/each}}
     </section>
-    <section class="walkerDisplay__newWalk-container">
+    <section class="walkDisplay__newWalk-container">
         <form class="new-walk__form" action="/newWalk" method="post">
           <h1 class="new-walk__form__heading">Request a Walk</h1>
           <label for="newwalkpostcodeinput" class="new-walk__form__labels">Postcode<input type="text" name="newwalkpostcode" id="newwalkpostcodeinput" class="register-pet__form__inputs" required> </label>
