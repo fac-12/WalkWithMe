@@ -31,7 +31,8 @@ exports.post = (req, res, next) => {
                     if(qErr) next(err);
                     else {
                       let uniquePetId = qRes.rows[0].id;
-
+                      let uniquePetName = qRes.rows[0].name;
+                      req.session.name = uniquePetName;
                       req.session.petid = uniquePetId;
                       console.log('rs login', req.session);
                       res.redirect('/petUniqueWalk');
