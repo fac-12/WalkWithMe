@@ -1,8 +1,8 @@
-.hideForm{
+.hideForm, .hideError{
   display: none;
 }
 
-.showForm{
+.showForm, .showError{
   display: block;
 }
 

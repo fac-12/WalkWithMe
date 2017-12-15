@@ -27,6 +27,9 @@
         <label for="registerpetpictureinput" class="register-pet__form__labels"> Pet picture url <input type="text" name="registerPetPicture" id="registerpetpictureinput" class="register-pet__form__inputs" required> </label>
         <label for="petregisteremailinput" class="register-pet__form__labels">Email<input type="email" name="registerPetEmail" id="petregisteremailinput" class="register-pet__form__inputs" class="register-pet__form__inputs" required> </label>
         <label for="petregisterpasswordinput" class="register-pet__form__labels">Password <input type="password" name="registerPetPassword" id="petregisterpasswordinput" class="register-pet__form__inputs" required> </label>
+        <label for="petregisterpasswordinput" class="register-pet__form__labels">Confirm Password <input type="password" name="registerPetConfirmPassword" id="petregisterconfirmpasswordinput" class="register-pet__form__inputs" required> </label>
+        <p class="register-pet__form__displayError hideError"> Passwords do not match. </p>
+          <p class="register-pet__form__displayError hideError"> Passwords must contain one uppercase letter, one number, one special case letter(!@#$&*) and must be a minimum of 8 characters. </p>
         <label for="petregistersubmit" class="register-pet__form__labels"><input type="submit"  value="Register" id="petregistersubmit" class="register-pet__form__submit"> </label>
       </form>
     </section>
@@ -50,6 +53,9 @@
       <label for="registerinputname" class="register-walker__form__labels"> Name <input type="text" name="registerWalkerName" id="registerinputname" class="register-walker__form__inputs"> </label>
       <label for="walkerregisteremailinput" class="register-walker__form__labels">Email<input type="email" name="registerWalkerEmail" id="walkerregisteremailinput" class="register-walker__form__inputs" required> </label>
       <label for="walkerregisterpasswordinput">Password <input type="password" name="registerWalkerPassword" id="walkerregisterpasswordinput" class="register-walker__form__inputs" required> </label>
+      <label for="walkerregisterpasswordinput" class="register-walker__form__labels">Confirm Password <input type="password" name="registerPetConfirmPassword" id="walkerregisterconfirmpasswordinput" class="register-walker__form__inputs" required> </label>
+      <p class="register-walker__form__displayError hideError"> Passwords do not match. </p>
+      <p class="register-walker__form__displayError hideError"> Passwords must contain one uppercase letter, one number, one special case letter(!@#$&*) and must be a minimum of 8 characters. </p>
       <label for="walkerregistersubmit" class="register-walker__form__labels"><input type="submit"  value="Register" id="walkerregistersubmit" class="register-walker__form__submit"> </label>
     </form>
   </section>
