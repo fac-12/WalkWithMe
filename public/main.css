@@ -58,9 +58,20 @@ body {
   text-align: center;
   /* margin: 3rem 0rem; */
   background-color: #0F63BF;
-  height: 7rem;
+  /* height: 7rem; */
   color: #F3F3F3;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   width: 100%;
 }
+.login-pet,.login-walker,.register-pet,.register-walker{
+  text-align: center;
+}
+.login-pet label,.login-walker label,.register-walker label,.register-pet label{
+display: flex;
+justify-content: space-between;
+padding: 0rem 1rem;
+}
+input{
+  padding-left:0.25rem;
+}*/
