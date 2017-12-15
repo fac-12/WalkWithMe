@@ -11,6 +11,7 @@ var walkerLoginBtn = document.getElementsByClassName('home__buttons-walker__logi
 
 var walkerRegisterBtn = document.getElementsByClassName('home__buttons-walker__register-btn')[0];
 
+
 var registerPetPasswordOne = document.getElementById('petregisterpasswordinput');
 var registerPetPasswordTwo = document.getElementById('petregisterconfirmpasswordinput');
 var registerPetBtn = document.getElementById('petregistersubmit');
@@ -23,32 +24,34 @@ var registerWalkerBtn = document.getElementById('walkerregistersubmit');
 var registerWalkerDisplayError = document.getElementsByClassName('register-walker__form__displayError')[0];
 var registerWalkerDisplayErrorTwo = document.getElementsByClassName('register-walker__form__displayError')[1];
 
+var sections = [
+    petLoginSection,
+    petRegisterSection,
+    walkerLoginSection,
+    walkerRegisterSection
+]
+
+function toggleForms(sections, sectionToShow) {
+    sections.forEach(function(section) {
+         section === sectionToShow ? section.classList.add('showForm') : section.classList.remove('showForm');
+    })
+}
+
 petLoginBtn.addEventListener("click", function() {
-    walkerLoginSection.classList.remove('showForm');
-    petRegisterSection.classList.remove('showForm');
-    walkerRegisterSection.classList.remove('showForm');
-    petLoginSection.classList.add('showForm');
+
+     toggleForms(sections, petLoginSection);
 })
 
 petRegisterBtn.addEventListener("click", function() {
-  petRegisterSection.classList.add('showForm');
-  walkerLoginSection.classList.remove('showForm');
-  petLoginSection.classList.remove('showForm');
-  walkerRegisterSection.classList.remove('showForm');
+    toggleForms(sections, petRegisterSection);
 })
 
 walkerLoginBtn.addEventListener("click", function() {
-  petRegisterSection.classList.remove('showForm');
-  walkerLoginSection.classList.add('showForm');
-  petLoginSection.classList.remove('showForm');
-  walkerRegisterSection.classList.remove('showForm');
+     toggleForms(sections, walkerLoginSection);
 })
 
 walkerRegisterBtn.addEventListener("click", function() {
-  petRegisterSection.classList.remove('showForm');
-  walkerLoginSection.classList.remove('showForm');
-  petLoginSection.classList.remove('showForm');
-  walkerRegisterSection.classList.add('showForm');
+    toggleForms(sections, walkerRegisterSection);
 })
 
 function checkPasswordMatch(password1, password2, displayError, submitBtn) {

@@ -1,15 +1,14 @@
 const bcrypt = require('bcryptjs');
 const check_walker_exists = require('../queries/check_walker_exists');
 const check_walker_password = require('../queries/check_walker_password');
+const get_walker_name = require('../queries/get_walker_name');
 
 exports.post = (req, res, next) => {
-  console.log(req.body);
   const walkerDetails = req.body;
   check_walker_exists(walkerDetails.walkerEmailLogin, (err, queryRes) => {
     if(err){
       next(err);
     } else if(queryRes[0].case === false){
-      console.log('you dont exist');
       req.flash('error_msg','You do not have an account. Please register.');
       res.redirect('/');
     } else{
@@ -28,8 +27,12 @@ exports.post = (req, res, next) => {
                 res.redirect('/');
               } else if(bcryptRes === true) {
                 req.session.Loggedin = true;
-                req.flash('success', 'You are now logged in');
-                res.redirect('/availablePetWalks');
+                get_walker_name(walkerDetails.walkerEmailLogin, (err, walkerRes) => {
+                  req.session.name = walkerRes.rows[0].name;
+                  req.flash('success', 'You are now logged in');
+                  res.redirect('/availablePetWalks');
+
+               })
               }
 
             }
