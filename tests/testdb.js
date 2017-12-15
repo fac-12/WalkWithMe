@@ -1,16 +1,16 @@
 const test = require('tape');
 const bcrypt = require('bcryptjs');
-const runDbBuild = require('../database/db_build.js');
-const change_walk_status = require('../queries/change_walk_status.js');
-const check_pet_exists = require('../queries/check_pet_exists.js');
-const check_pet_password = require('../queries/check_pet_password.js');
-const check_walker_exists = require('../queries/check_walker_exists.js');
-const check_walker_password = require('../queries/check_walker_password.js');
-const get_all_walks = require('../queries/get_all_walks.js');
-const get_pet_own_walks = require('../queries/get_pet_own_walks.js');
-const new_walk = require('../queries/new_walk.js');
-const register_pet= require('../queries/register_pet.js');
-const register_walker = require('../queries/register_walker.js')
+const runDbBuild = require('../src/database/db_build.js');
+const change_walk_status = require('../src/queries/change_walk_status.js');
+const check_pet_exists = require('../src/queries/check_pet_exists.js');
+const check_pet_password = require('../src/queries/check_pet_password.js');
+const check_walker_exists = require('../src/queries/check_walker_exists.js');
+const check_walker_password = require('../src/queries/check_walker_password.js');
+const get_all_walks = require('../src/queries/get_all_walks.js');
+const get_pet_own_walks = require('../src/queries/get_pet_own_walks.js');
+const new_walk = require('../src/queries/new_walk.js');
+const register_pet= require('../src/queries/register_pet.js');
+const register_walker = require('../src/queries/register_walker.js')
 
 
 test('tape is working', (t) => {

@@ -4,13 +4,11 @@ const check_walker_password = require('../queries/check_walker_password');
 const get_walker_name = require('../queries/get_walker_name');
 
 exports.post = (req, res, next) => {
-  console.log(req.body);
   const walkerDetails = req.body;
   check_walker_exists(walkerDetails.walkerEmailLogin, (err, queryRes) => {
     if(err){
       next(err);
     } else if(queryRes[0].case === false){
-      console.log('you dont exist');
       req.flash('error_msg','You do not have an account. Please register.');
       res.redirect('/');
     } else{

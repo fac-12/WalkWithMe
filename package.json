@@ -4,7 +4,7 @@
   "description": "An application for dog walkers to find dogs that need walking",
   "main": "index.js",
   "scripts": {
-    "testdb": "NODE_ENV=test node src/tests/testdb.js | tap-spec",
+    "testdb": "NODE_ENV=test node tests/testdb.js | tap-spec",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },

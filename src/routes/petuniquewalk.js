@@ -1,11 +1,8 @@
 const get_pet_own_walks = require('../queries/get_pet_own_walks');
 
 exports.get = (req, res, next) => {
-   console.log("rs petuniquewalk ", req.session);
-   console.log("name!!", req.session.name);
    if(req.session.Loggedin === true) {
      const petid = req.session.petid;
-     console.log("petID", petid);
      get_pet_own_walks(petid, (err, getPetRes) => {
        if (err) next(err);
        else {
