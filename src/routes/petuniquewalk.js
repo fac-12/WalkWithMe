@@ -8,7 +8,8 @@ exports.get = (req, res, next) => {
      get_pet_own_walks(petid, (err, getPetRes) => {
        if (err) next(err);
        else {
-        res.render('petdisplaywalks', { allWalks: getPetRes })
+        const petname = req.session.name;
+        res.render('petdisplaywalks', { allWalks: getPetRes, petName: petname })
        }
    })
   } else {
