@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const check_walker_exists = require('../queries/check_walker_exists');
 const check_walker_password = require('../queries/check_walker_password');
+const get_walker_name = require('../queries/get_walker_name');
 
 exports.post = (req, res, next) => {
   const walkerDetails = req.body;
@@ -26,8 +27,12 @@ exports.post = (req, res, next) => {
                 res.redirect('/');
               } else if(bcryptRes === true) {
                 req.session.Loggedin = true;
-                req.flash('success', 'You are now logged in');
-                res.redirect('/availablePetWalks');
+                get_walker_name(walkerDetails.walkerEmailLogin, (err, walkerRes) => {
+                  req.session.name = walkerRes.rows[0].name;
+                  req.flash('success', 'You are now logged in');
+                  res.redirect('/availablePetWalks');
+
+               })
               }
 
             }
