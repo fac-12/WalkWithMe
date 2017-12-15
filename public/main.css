@@ -5,3 +5,62 @@
 .showForm{
   display: block;
 }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: navy;
+  background-color: #F3F3F3;
+}
+/*home css*/
+.heading {
+  display: flex;
+  align-items: center;
+}
+
+.heading__title {
+  text-align: center;
+  width: 100%;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home__text {
+  text-align: center;
+}
+
+.home__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  background-color: #FFC42D;
+  width: 50%;
+  padding-bottom: 1.5rem;
+}
+
+.home__buttons-pet__text , .home__buttons-walker__text{
+  text-align: center;
+}
+
+.home__buttons-pet__login-btn , .home__buttons-pet__register-btn , .home__buttons-walker__login-btn , .home__buttons-walker__register-btn {
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  background-color: #F08A4B;
+  color: navy;
+}
+
+.footer {
+  text-align: center;
+  /* margin: 3rem 0rem; */
+  background-color: #0F63BF;
+  height: 7rem;
+  color: #F3F3F3;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
