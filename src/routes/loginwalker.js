@@ -30,7 +30,6 @@ exports.post = (req, res, next) => {
               } else if(bcryptRes === true) {
                 req.session.Loggedin = true;
                 get_walker_name(walkerDetails.walkerEmailLogin, (err, walkerRes) => {
-                  console.log("walkerREs", walkerRes);
                   req.session.name = walkerRes.rows[0].name;
                   req.flash('success', 'You are now logged in');
                   res.redirect('/availablePetWalks');

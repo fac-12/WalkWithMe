@@ -26,6 +26,7 @@ exports.post = (req, res, next) => {
                 if(err){
                   next(err);
                 } else {
+                  req.session.name = walkerDetails.registerWalkerName;
                   req.session.Loggedin = true;
                   req.flash('success', queryRes)
                   res.redirect('/availablePetWalks')
