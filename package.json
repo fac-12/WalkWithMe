@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/fac-12/WalkWithMe#readme",
   "dependencies": {
+    "env2": "^2.2.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "compression": "^1.7.1",
@@ -31,6 +32,7 @@
     "express-validator": "^4.3.0",
     "jsonwebtoken": "^8.1.0",
     "pg": "^7.4.0",
+    "pg-promise": "^7.3.2",
     "serve-favicon": "^2.4.5"
   },
   "engines": {
